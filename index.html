@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gezegenler Arası Zaman Dönüştürücü</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌌 Gezegenler Arası Zaman Dönüştürücü</h1>
+    <p>Bir gezegendeki zamanı başka bir gezegenin zamanına dönüştürün!</p>
+
+    <label for="inputPlanet">Başlangıç Gezegeni:</label>
+    <select id="inputPlanet">
+      <option value="Mercury">Merkür</option>
+      <option value="Venus">Venüs</option>
+      <option value="Earth" selected>Dünya</option>
+      <option value="Mars">Mars</option>
+      <option value="Jupiter">Jüpiter</option>
+      <option value="Saturn">Satürn</option>
+      <option value="Uranus">Uranüs</option>
+      <option value="Neptune">Neptün</option>
+    </select>
+
+    <label for="inputTime">Zaman (Saat):</label>
+    <input type="number" id="inputTime" placeholder="Örneğin: 24" min="0">
+
+    <label for="outputPlanet">Hedef Gezegeni:</label>
+    <select id="outputPlanet">
+      <option value="Mercury">Merkür</option>
+      <option value="Venus">Venüs</option>
+      <option value="Earth">Dünya</option>
+      <option value="Mars">Mars</option>
+      <option value="Jupiter">Jüpiter</option>
+      <option value="Saturn">Satürn</option>
+      <option value="Uranus">Uranüs</option>
+      <option value="Neptune" selected>Neptün</option>
+    </select>
+
+    <button onclick="convertTime()">Dönüştür</button>
+
+    <div class="output-section" id="output"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
