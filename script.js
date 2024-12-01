@@ -15,7 +15,7 @@ function convertTime() {
   const inputUnit = document.getElementById('inputUnit').value;
 
   if (isNaN(inputTime) || inputTime <= 0) {
-    document.getElementById('output').innerHTML = "<p>Lütfen geçerli bir zaman girin!</p>";
+    document.getElementById('output').innerHTML = "<p>Enter valid time!</p>";
     return;
   }
 
@@ -23,15 +23,15 @@ function convertTime() {
   const earthHours = convertToEarthHours(inputTime, inputUnit, inputPlanet);
 
   // Tüm gezegenlerdeki karşılıkları hesapla
-  let outputHTML = `<h2>${inputTime} ${inputUnit} (${inputPlanet}) tüm gezegenlerde:</h2><ul>`;
+  let outputHTML = `<h2>${inputTime} ${inputUnit} (${inputPlanet}) on all planets:</h2><ul>`;
   for (let planet in planetRatios) {
     if (planet !== inputPlanet) {
       outputHTML += `<li><strong>${planet}:</strong><br>
-        ${convertFromEarthHours(earthHours, "hours", planet).toFixed(2)} saat<br>
-        ${convertFromEarthHours(earthHours, "days", planet).toFixed(2)} gün<br>
-        ${convertFromEarthHours(earthHours, "weeks", planet).toFixed(2)} hafta<br>
-        ${convertFromEarthHours(earthHours, "months", planet).toFixed(2)} ay<br>
-        ${convertFromEarthHours(earthHours, "years", planet).toFixed(2)} yıl
+        ${convertFromEarthHours(earthHours, "hours", planet).toFixed(2)} hours<br>
+        ${convertFromEarthHours(earthHours, "days", planet).toFixed(2)} days<br>
+        ${convertFromEarthHours(earthHours, "weeks", planet).toFixed(2)} weeks<br>
+        ${convertFromEarthHours(earthHours, "months", planet).toFixed(2)} months<br>
+        ${convertFromEarthHours(earthHours, "years", planet).toFixed(2)} years
       </li>`;
     }
   }
