@@ -3,46 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gezegenler Arası Zaman Dönüştürücü 🌌</title>
+  <title>ConverterX Space Time 🌌</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>🌠 Gezegenler Arası Zaman Dönüştürücü 🌠</h1>
+    <h1>🌠 Space Time Converter 🌠</h1>
 
     <div class="form-group">
-      <label for="inputPlanet">Başlangıç Gezegeni:</label>
+      <label for="inputPlanet">Planet:</label>
       <select id="inputPlanet">
-        <option value="Mercury">Merkür</option>
-        <option value="Venus">Venüs</option>
-        <option value="Earth" selected>Dünya</option>
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Earth" selected>Earth</option>
         <option value="Mars">Mars</option>
-        <option value="Jupiter">Jüpiter</option>
-        <option value="Saturn">Satürn</option>
-        <option value="Uranus">Uranüs</option>
-        <option value="Neptune">Neptün</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Uranus">Uranus</option>
+        <option value="Neptune">Neptune</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="inputTime">Zaman Miktarı:</label>
-      <input type="number" id="inputTime" placeholder="Zaman girin" min="0">
+      <input type="number" id="inputTime" placeholder="Enter time" min="0">
     </div>
 
     <div class="form-group">
-      <label for="inputUnit">Zaman Birimi:</label>
+      <label for="inputUnit">Unit of Time:</label>
       <select id="inputUnit">
-        <option value="hours">Saat</option>
-        <option value="days" selected>Gün</option>
-        <option value="weeks">Hafta</option>
-        <option value="months">Ay</option>
-        <option value="years">Yıl</option>
+        <option value="hours">Hours</option>
+        <option value="days" selected>Hours</option>
+        <option value="weeks">Weeks</option>
+        <option value="months">Months</option>
+        <option value="years">Years</option>
       </select>
     </div>
 
     
 
-    <button onclick="convertTime()">Dönüştür 🚀</button>
+    <button onclick="convertTime()">Convert 🚀</button>
 
     <div id="output" class="output"></div>
   </div>
