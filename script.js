@@ -13,36 +13,27 @@ function convertTime() {
   const inputPlanet = document.getElementById('inputPlanet').value;
   const inputTime = parseFloat(document.getElementById('inputTime').value);
   const inputUnit = document.getElementById('inputUnit').value;
+  const outputPlanet = document.getElementById('outputPlanet').value;
 
   if (isNaN(inputTime) || inputTime <= 0) {
     document.getElementById('output').innerHTML = "<p>Lütfen geçerli bir zaman girin!</p>";
     return;
   }
 
-  // Girilen zamanı Dünya saatine dönüştür
+  // Girilen birimi Dünya saatine çevir
   const earthHours = convertToEarthHours(inputTime, inputUnit, inputPlanet);
 
-  // Tüm gezegenlerdeki karşılıkları hesapla
-  let outputHTML = `<h2>${inputTime} ${inputUnit} (${inputPlanet}) tüm gezegenlerde:</h2><ul>`;
-  for (let planet in planetRatios) {
-    if (planet !== inputPlanet) {
-      outputHTML += `<li><strong>${planet}:</strong><br>
-        ${convertFromEarthHours(earthHours, "hours", planet).toFixed(2)} saat<br>
-        ${convertFromEarthHours(earthHours, "days", planet).toFixed(2)} gün<br>
-        ${convertFromEarthHours(earthHours, "weeks", planet).toFixed(2)} hafta<br>
-        ${convertFromEarthHours(earthHours, "months", planet).toFixed(2)} ay<br>
-        ${convertFromEarthHours(earthHours, "years", planet).toFixed(2)} yıl
-      </li>`;
-    }
-  }
-  outputHTML += "</ul>";
+  // Dünya saatinden hedef gezegene dönüştür
+  const targetTime = convertFromEarthHours(earthHours, inputUnit, outputPlanet);
 
-  document.getElementById('output').innerHTML = outputHTML;
+  document.getElementById('output').innerHTML = `
+    <h2>${inputTime} ${inputUnit} (${inputPlanet}) → ${targetTime.toFixed(2)} ${inputUnit} (${outputPlanet})</h2>
+  `;
 }
 
+// Girdi birimini Dünya saatine çevirme fonksiyonu
 function convertToEarthHours(value, unit, planet) {
   const dayInHours = planetRatios[planet].day;
-  const yearInDays = planetRatios[planet].year;
 
   switch (unit) {
     case "hours":
@@ -54,12 +45,13 @@ function convertToEarthHours(value, unit, planet) {
     case "months":
       return value * dayInHours * 30;
     case "years":
-      return value * dayInHours * yearInDays;
+      return value * dayInHours * planetRatios[planet].year;
     default:
       return value;
   }
 }
 
+// Dünya saatinden hedef gezegen birimine dönüştürme fonksiyonu
 function convertFromEarthHours(hours, unit, planet) {
   const dayInHours = planetRatios[planet].day;
   const yearInDays = planetRatios[planet].year;
