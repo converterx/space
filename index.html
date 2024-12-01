@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gezegenler Arası Zaman Dönüştürücü</title>
+  <title>Gezegen Zaman Dönüştürücü</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>🌌 Gezegenler Arası Zaman Dönüştürücü</h1>
-    <p>Farklı gezegenler arasında saat, gün, hafta, ay ve yıl dönüşümü yapın!</p>
-
+    <h1>Gezegenler Arası Zaman Dönüştürücü 🌌</h1>
     <label for="inputPlanet">Başlangıç Gezegeni:</label>
     <select id="inputPlanet">
+      <option value="Earth">Dünya</option>
       <option value="Mercury">Merkür</option>
       <option value="Venus">Venüs</option>
-      <option value="Earth" selected>Dünya</option>
       <option value="Mars">Mars</option>
       <option value="Jupiter">Jüpiter</option>
       <option value="Saturn">Satürn</option>
@@ -24,7 +22,7 @@
     </select>
 
     <label for="inputTime">Zaman Miktarı:</label>
-    <input type="number" id="inputTime" placeholder="Örneğin: 24" min="0">
+    <input type="number" id="inputTime" placeholder="Zaman girin">
 
     <label for="inputUnit">Zaman Birimi:</label>
     <select id="inputUnit">
@@ -35,23 +33,8 @@
       <option value="years">Yıl</option>
     </select>
 
-    <label for="outputPlanet">Hedef Gezegeni:</label>
-    <select id="outputPlanet">
-      <option value="Mercury">Merkür</option>
-      <option value="Venus">Venüs</option>
-      <option value="Earth">Dünya</option>
-      <option value="Mars">Mars</option>
-      <option value="Jupiter">Jüpiter</option>
-      <option value="Saturn">Satürn</option>
-      <option value="Uranus">Uranüs</option>
-      <option value="Neptune" selected>Neptün</option>
-    </select>
-
     <button onclick="convertTime()">Dönüştür</button>
-
-    <div class="output-section" id="output"></div>
+    <div id="output"></div>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
