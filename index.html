@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1>🌌 Gezegenler Arası Zaman Dönüştürücü</h1>
-    <p>Bir gezegendeki zamanı başka bir gezegenin zamanına dönüştürün!</p>
+    <p>Farklı gezegenler arasında saat, gün, hafta, ay ve yıl dönüşümü yapın!</p>
 
     <label for="inputPlanet">Başlangıç Gezegeni:</label>
     <select id="inputPlanet">
@@ -23,8 +23,17 @@
       <option value="Neptune">Neptün</option>
     </select>
 
-    <label for="inputTime">Zaman (Saat):</label>
+    <label for="inputTime">Zaman Miktarı:</label>
     <input type="number" id="inputTime" placeholder="Örneğin: 24" min="0">
+
+    <label for="inputUnit">Zaman Birimi:</label>
+    <select id="inputUnit">
+      <option value="hours">Saat</option>
+      <option value="days">Gün</option>
+      <option value="weeks">Hafta</option>
+      <option value="months">Ay</option>
+      <option value="years">Yıl</option>
+    </select>
 
     <label for="outputPlanet">Hedef Gezegeni:</label>
     <select id="outputPlanet">
