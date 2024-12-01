@@ -2,7 +2,21 @@ const planetRatios = {
   "Mercury": { day: 1407.5, year: 88 },   // Merkür
   "Venus": { day: 5832.5, year: 225 },    // Venüs
   "Earth": { day: 24, year: 365 },        // Dünya
-  "Mars": { day:
+  "Mars": { day: 24.6, year: 687 },       // Mars
+  "Jupiter": { day: 9.9, year: 4333 },    // Jüpiter
+  "Saturn": { day: 10.7, year: 10759 },   // Satürn
+  "Uranus": { day: 17.2, year: 30687 },   // Uranüs
+  "Neptune": { day: 16.1, year: 60190 }   // Neptün
+};
+
+function convertTime() {
+  const inputPlanet = document.getElementById('inputPlanet').value;
+  const inputTime = parseFloat(document.getElementById('inputTime').value);
+  const inputUnit = document.getElementById('inputUnit').value;
+
+  if (isNaN(inputTime) || inputTime <= 0) {
+    document.getElementById('output').innerHTML = "<p>Enter valid time!</p>";
+    return;
   }
 
   // Girilen zamanı Dünya saatine dönüştür
