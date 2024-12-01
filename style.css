@@ -1,59 +1,73 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle, #0d1b2a, #000);
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
+const planetRatios = {
+  "Mercury": { day: 1407.5, year: 88 },   // Merkür
+  "Venus": { day: 5832.5, year: 225 },    // Venüs
+  "Earth": { day: 24, year: 365 },        // Dünya
+  "Mars": { day: 24.6, year: 687 },       // Mars
+  "Jupiter": { day: 9.9, year: 4333 },    // Jüpiter
+  "Saturn": { day: 10.7, year: 10759 },   // Satürn
+  "Uranus": { day: 17.2, year: 30687 },   // Uranüs
+  "Neptune": { day: 16.1, year: 60190 }   // Neptün
+};
+
+function convertTime() {
+  const inputPlanet = document.getElementById('inputPlanet').value;
+  const inputTime = parseFloat(document.getElementById('inputTime').value);
+  const inputUnit = document.getElementById('inputUnit').value;
+  const outputPlanet = document.getElementById('outputPlanet').value;
+
+  if (isNaN(inputTime) || inputTime <= 0) {
+    document.getElementById('output').innerHTML = "<p>Lütfen geçerli bir zaman girin!</p>";
+    return;
+  }
+
+  // Girilen birimi Dünya saatine çevir
+  const earthHours = convertToEarthHours(inputTime, inputUnit, inputPlanet);
+
+  // Dünya saatinden hedef gezegene dönüştür
+  const targetTime = convertFromEarthHours(earthHours, inputUnit, outputPlanet);
+
+  document.getElementById('output').innerHTML = `
+    <h2>${inputTime} ${inputUnit} (${inputPlanet}) → ${targetTime.toFixed(2)} ${inputUnit} (${outputPlanet})</h2>
+  `;
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(255, 136, 0, 0.5);
-  max-width: 500px;
-  margin: 0 auto;
+// Girdi birimini Dünya saatine çevirme fonksiyonu
+function convertToEarthHours(value, unit, planet) {
+  const dayInHours = planetRatios[planet].day;
+
+  switch (unit) {
+    case "hours":
+      return value;
+    case "days":
+      return value * dayInHours;
+    case "weeks":
+      return value * dayInHours * 7;
+    case "months":
+      return value * dayInHours * 30;
+    case "years":
+      return value * dayInHours * planetRatios[planet].year;
+    default:
+      return value;
+  }
 }
 
-h1 {
-  font-size: 2.5em;
-  color: #ff8000;
-}
+// Dünya saatinden hedef gezegen birimine dönüştürme fonksiyonu
+function convertFromEarthHours(hours, unit, planet) {
+  const dayInHours = planetRatios[planet].day;
+  const yearInDays = planetRatios[planet].year;
 
-input, select {
-  width: 100%;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: none;
-  background-color: #333;
-  color: #fff;
-  font-size: 1.2em;
-}
-
-button {
-  background: linear-gradient(145deg, #ff8000, #ff4500);
-  color: #fff;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: linear-gradient(145deg, #ff4500, #ff8000);
-}
-
-.output-section {
-  margin-top: 20px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 136, 0, 0.5);
-}
-
-h2 {
-  color: #ff8000;
+  switch (unit) {
+    case "hours":
+      return hours / (24 / dayInHours);
+    case "days":
+      return hours / dayInHours;
+    case "weeks":
+      return hours / (dayInHours * 7);
+    case "months":
+      return hours / (dayInHours * 30);
+    case "years":
+      return hours / (dayInHours * yearInDays);
+    default:
+      return hours;
+  }
 }
