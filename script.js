@@ -51,7 +51,7 @@ function convertTime() {
   const outputUnit = document.getElementById('outputUnit').value;
 
   if (isNaN(inputTime) || inputTime <= 0) {
-    document.getElementById('output').innerHTML = "<p>Lütfen geçerli bir zaman girin!</p>";
+    document.getElementById('output').innerHTML = "<p>Please enter valid time!</p>";
     return;
   }
 
