@@ -1,65 +1,84 @@
+/* Uzay temalı genel stil */
 body {
-  background-color: #0b0e16;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(to bottom, #000428, #004e92);
   color: #ffffff;
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  text-align: center;
+  padding: 20px;
   margin: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
 }
 
 .container {
-  background: rgba(20, 20, 50, 0.8);
-  padding: 30px 40px;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 h1 {
-  text-align: center;
-  font-size: 2rem;
-  color: #ff8c00;
-  text-shadow: 0 0 10px #ff8c00;
+  color: #ffcc00;
+  font-size: 36px;
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
 }
 
+/* Form alanları */
 .form-group {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 label {
+  font-size: 18px;
+  margin-bottom: 5px;
   display: block;
-  margin-bottom: 10px;
+  color: #ffcc00;
 }
 
-select, input {
+input, select {
   width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: white;
+  padding: 12px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ffcc00;
+  border-radius: 8px;
+  color: #ffffff;
   outline: none;
-  border-radius: 5px;
 }
 
+input:focus, select:focus {
+  border-color: #ff8800;
+}
+
+/* Buton stili */
 button {
   width: 100%;
   padding: 15px;
-  background-color: #ff8c00;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff8008, #ffc837);
   border: none;
-  color: white;
-  font-size: 1.2rem;
+  border-radius: 8px;
+  color: #000000;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #ffa500;
+  background: linear-gradient(to right, #ffc837, #ff8008);
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.8);
 }
 
-#output {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: #00ffcc;
+/* Çıktı alanı */
+.output {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  font-size: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
