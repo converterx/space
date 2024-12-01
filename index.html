@@ -3,38 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gezegen Zaman Dönüştürücü</title>
+  <title>Gezegenler Arası Zaman Dönüştürücü 🌌</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Gezegenler Arası Zaman Dönüştürücü 🌌</h1>
-    <label for="inputPlanet">Başlangıç Gezegeni:</label>
-    <select id="inputPlanet">
-      <option value="Earth">Dünya</option>
-      <option value="Mercury">Merkür</option>
-      <option value="Venus">Venüs</option>
-      <option value="Mars">Mars</option>
-      <option value="Jupiter">Jüpiter</option>
-      <option value="Saturn">Satürn</option>
-      <option value="Uranus">Uranüs</option>
-      <option value="Neptune">Neptün</option>
-    </select>
+    <h1>Gezegenler Arası Zaman Dönüştürücü 🌍🪐</h1>
 
-    <label for="inputTime">Zaman Miktarı:</label>
-    <input type="number" id="inputTime" placeholder="Zaman girin">
+    <div class="form-group">
+      <label for="inputPlanet">Başlangıç Gezegeni:</label>
+      <select id="inputPlanet">
+        <option value="Mercury">Merkür</option>
+        <option value="Venus">Venüs</option>
+        <option value="Earth" selected>Dünya</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jüpiter</option>
+        <option value="Saturn">Satürn</option>
+        <option value="Uranus">Uranüs</option>
+        <option value="Neptune">Neptün</option>
+      </select>
+    </div>
 
-    <label for="inputUnit">Zaman Birimi:</label>
-    <select id="inputUnit">
-      <option value="hours">Saat</option>
-      <option value="days">Gün</option>
-      <option value="weeks">Hafta</option>
-      <option value="months">Ay</option>
-      <option value="years">Yıl</option>
-    </select>
+    <div class="form-group">
+      <label for="inputTime">Zaman Miktarı:</label>
+      <input type="number" id="inputTime" placeholder="Zaman girin" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="inputUnit">Zaman Birimi:</label>
+      <select id="inputUnit">
+        <option value="hours">Saat</option>
+        <option value="days" selected>Gün</option>
+        <option value="weeks">Hafta</option>
+        <option value="months">Ay</option>
+        <option value="years">Yıl</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="outputPlanet">Hedef Gezegeni:</label>
+      <select id="outputPlanet">
+        <option value="Mercury">Merkür</option>
+        <option value="Venus">Venüs</option>
+        <option value="Earth">Dünya</option>
+        <option value="Mars" selected>Mars</option>
+        <option value="Jupiter">Jüpiter</option>
+        <option value="Saturn">Satürn</option>
+        <option value="Uranus">Uranüs</option>
+        <option value="Neptune">Neptün</option>
+      </select>
+    </div>
 
     <button onclick="convertTime()">Dönüştür</button>
-    <div id="output"></div>
+
+    <div id="output" class="output"></div>
   </div>
 </body>
+<script src="script.js"></script>
 </html>
