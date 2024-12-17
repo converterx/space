@@ -1,12 +1,12 @@
 const planetRatios = {
-  "Mercury": { day: 1407.5, year: 88 },   // Merkür
-  "Venus": { day: 5832.5, year: 225 },    // Venüs
-  "Earth": { day: 24, year: 365 },        // Dünya
+  "Mercury": { day: 1407.5, year: 88 },   // Mercury
+  "Venus": { day: 5832.5, year: 225 },    // Venera
+  "Earth": { day: 24, year: 365 },        // Earth
   "Mars": { day: 24.6, year: 687 },       // Mars
-  "Jupiter": { day: 9.9, year: 4333 },    // Jüpiter
-  "Saturn": { day: 10.7, year: 10759 },   // Satürn
-  "Uranus": { day: 17.2, year: 30687 },   // Uranüs
-  "Neptune": { day: 16.1, year: 60190 }   // Neptün
+  "Jupiter": { day: 9.9, year: 4333 },    // Jupiter
+  "Saturn": { day: 10.7, year: 10759 },   // Saturn
+  "Uranus": { day: 17.2, year: 30687 },   // Uranus
+  "Neptune": { day: 16.1, year: 60190 }   // Neptune
 };
 
 function convertTime() {
@@ -19,10 +19,10 @@ function convertTime() {
     return;
   }
 
-  // Girilen zamanı Dünya saatine dönüştür
+  // Convert to Earth clock
   const earthHours = convertToEarthHours(inputTime, inputUnit, inputPlanet);
 
-  // Tüm gezegenlerdeki karşılıkları hesapla
+  // Apply to all planets
   let outputHTML = `<h2>${inputTime} ${inputUnit} (${inputPlanet}) on all planets:</h2><ul>`;
   for (let planet in planetRatios) {
     if (planet !== inputPlanet) {
